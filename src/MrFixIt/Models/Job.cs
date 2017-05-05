@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace MrFixIt.Models
 {
-    //Add the table we are referencing and it's dependency 
+    [Table("Jobs")]
     public class Job
     {
         [Key]

@@ -24,31 +24,50 @@
         event.preventDefault();
         console.log($(this).serialize());
         $.ajax({
-            url: '@Url.Action("StartJob")',
-            type: 'Post',
+            url: '/Jobs/StartJob/',
+            type: 'POST',
             dataType: 'json',
             data: $(this).serialize(),
             success: function (result) {
                 console.log(result);
                 var jobStarted =
+                    '<h3>You have started ' + result.title + '!</h3>' +
                     '<form action="CompleteJob" class="complete-job">' +
-                        '<input type="hidden" name="completeJob" value="' + result.JodIb + '" />' + 
-                        '<button type="submit" btn btn-sucess btn-sm job-list>Complete Job</button>' + 
-                    '</form>'
+                        '<input type="hidden" name="completeJob" value="' + result.jobId + '"  />' +
+                        '<button type="submit" class="btn btn-sucess btn-sm">Complete Job</button>' +
+                    '</form>';
                 $('#begin-job').html(jobStarted);
+                $('.complete-job').submit(function (event) {
+                    event.preventDefault();
+                    console.log($(this).serialize());
+                    $('#begin-job').hide();
+                    $.ajax({
+                        url: '/Jobs/CompleteJob/',
+                        type: 'POST',
+                        dataType: 'json',
+                        data: $(this).serialize(),
+                        success: function (result) {
+                            var jobComplete =
+                                '<h3>You have completed ' + result.title + '!</h3>' +
+                            $('#complete-job').html(jobComplete);
+                        }
+                    });
+                });
             }
         });
     });
     $('.complete-job').submit(function (event) {
         event.preventDefault();
+        console.log($(this).serialize());
+        $('#begin-job').hide();
         $.ajax({
-            url: '@Url.Action("CompleteJob")',
-            type: 'Post',
+            url: '/Jobs/CompleteJob/',
+            type: 'POST',
             dataType: 'json',
             data: $(this).serialize(),
             success: function (result) {
                 var jobStarted =
-                    '<h3>You have completed ' + result.Title + '!</h3>' +
+                    '<h3>You have completed ' + result.title + '!</h3>' +
                 $('#complete-job').html(jobStarted);
             }
         });

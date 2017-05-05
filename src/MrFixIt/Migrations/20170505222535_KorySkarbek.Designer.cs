@@ -8,7 +8,7 @@ using MrFixIt.Models;
 namespace MrFixIt.Migrations
 {
     [DbContext(typeof(MrFixItContext))]
-    [Migration("20170505161254_KorySkarbek")]
+    [Migration("20170505222535_KorySkarbek")]
     partial class KorySkarbek
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

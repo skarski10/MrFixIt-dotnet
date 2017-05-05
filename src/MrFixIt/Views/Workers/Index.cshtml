@@ -23,19 +23,22 @@
             <div>
                 <h5>@Job.Title</h5>
                 <p>@Job.Description</p>
-                
-                <div id="start-job">
-                    <form action="StartJob" class="start-job" >
-                        <input type="hidden" name="JobId" value="@Job.JobId" />
-                        <button type="submit" btn btn-info btn-sm job-list>Start Job</button>
-                    </form>
-                </div>
+                @if (Job.Pending == false)
+                {
+                    <div id="start-job">
+                        <form action="StartJob" class="start-job">
+                            <input type="hidden" name="startJob" value="@Job.JobId" />
+                            <button type="submit" class="btn btn-info btn-sm">Start Job</button>
+                        </form>
+                    </div>
+                }
+                else
+                {
                 <div id="begin-job">
-
                 </div>
                 <div id="complete-job">
-
                 </div>
+                }                
                 <hr />
             </div>
         }

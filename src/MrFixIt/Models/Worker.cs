@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Http;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MrFixIt.Models
 {
-    //Add the table we are referencing and it's dependency
+    [Table("Workers")]
     public class Worker
     {
         [Key]
@@ -18,7 +19,6 @@ namespace MrFixIt.Models
         public string LastName { get; set; }
         public bool Avaliable { get; set; }
 
-        //change to virtual ApplicationUser
         public string UserName { get; set; }
         //this comes from Identity.User
         public virtual ICollection<Job> Jobs { get; set; }
