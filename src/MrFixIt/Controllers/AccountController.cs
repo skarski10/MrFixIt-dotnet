@@ -27,7 +27,7 @@ namespace MrFixIt.Controllers
             _signInManager = signInManager;
             _db = db;
         }
-
+        //////Delete this:
         //public IActionResult Index()
         //{
         //    return View();

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace MrFixIt.Models
 {
+    //Add the table we are referencing and it's dependency 
     public class Job
     {
         [Key]

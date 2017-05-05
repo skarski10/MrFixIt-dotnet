@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Http;
 
 namespace MrFixIt.Models
 {
+    //Add the table we are referencing and it's dependency
     public class Worker
     {
         [Key]
@@ -16,6 +17,8 @@ namespace MrFixIt.Models
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public bool Avaliable { get; set; }
+
+        //change to virtual ApplicationUser
         public string UserName { get; set; }
         //this comes from Identity.User
         public virtual ICollection<Job> Jobs { get; set; }
