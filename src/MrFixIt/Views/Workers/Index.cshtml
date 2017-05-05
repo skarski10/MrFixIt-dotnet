@@ -8,18 +8,36 @@
     <div class="text-center">
         <h4>Hello Worker @Model.FirstName @Model.LastName. You are Logged In</h4>
         <h3>Your Current Jobs:</h3>
-        @foreach (var Job in Model.Jobs)
-        {
-            <h5>@Job.Title</h5>
-
-        }
+       
         @if (Model.Avaliable)
         {
             <h2>Please @Html.ActionLink("select a job", "Index", "Jobs").</h2>
+
         }
         else
         {
             <p>You are already assigned to a job.</p>
+        }
+        @foreach (var Job in Model.Jobs)
+        {
+            <div>
+                <h5>@Job.Title</h5>
+                <p>@Job.Description</p>
+                
+                <div id="start-job">
+                    <form action="StartJob" class="start-job" >
+                        <input type="hidden" name="JobId" value="@Job.JobId" />
+                        <button type="submit" btn btn-info btn-sm job-list>Start Job</button>
+                    </form>
+                </div>
+                <div id="begin-job">
+
+                </div>
+                <div id="complete-job">
+
+                </div>
+                <hr />
+            </div>
         }
     </div>
 }

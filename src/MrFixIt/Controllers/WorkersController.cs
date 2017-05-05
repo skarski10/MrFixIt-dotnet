@@ -41,5 +41,24 @@ namespace MrFixIt.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+        [HttpPost]
+        public IActionResult StartJob(int JobId)
+        {
+            Job getJob = db.Jobs.FirstOrDefault(thisJob => thisJob.JobId == JobId);
+            getJob.Worker = db.Workers.FirstOrDefault(i => i.UserName == User.Identity.Name);
+            getJob.Pending = true;
+            db.Entry(getJob).State = EntityState.Modified;
+            db.SaveChanges();
+            return Json(getJob);
+        }
+        [HttpPost]
+        public IActionResult CompleteJob(int jobId)
+        {
+            Job getJob = db.Jobs.FirstOrDefault(thisJob => thisJob.JobId == jobId);
+            getJob.Completed = true;
+            db.Entry(getJob).State = EntityState.Modified;
+            db.SaveChanges();
+            return Json(getJob);
+        }
     }
 }
