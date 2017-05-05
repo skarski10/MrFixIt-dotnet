@@ -46,5 +46,9 @@ namespace MrFixIt.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+        public IActionResult JobsList()
+        {
+            return View(db.Jobs.ToList());
+        }
     }
 }
