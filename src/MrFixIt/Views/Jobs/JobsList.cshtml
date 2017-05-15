@@ -8,11 +8,11 @@
         <ul>
             <li>@Job.Description</li>
         </ul>
-        @if (Job.Worker == null)
+        @if (@Job.Worker == null)
         {
             <li class="btn">This job is unclaimed. <button class="btn btn-success btn-sm job-list" data-request-url='@Url.Action("Claim", new { @text = @Job.Title, id = Job.JobId })'>Claim</button></li>
         }
-        else
+        else if (@Job.Worker != null)
         {
             <li class="btn">This Job is claimed by @Job.Worker.FirstName @Job.Worker.LastName</li>
 

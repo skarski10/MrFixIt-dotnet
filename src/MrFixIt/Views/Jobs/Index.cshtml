@@ -6,6 +6,23 @@
     @Html.ActionLink("Add a new job", "Create")
 </div>
 
-<h4 class="jobs" data-request-url="@Url.Action("JobsList")">All Jobs:</h4>
-<div id="result"></div>
-<div class="claim-job"></div>
+<div class="job-listings">
+    @foreach (var Job in Model)
+    {
+        <div class="job-listing">
+            <h3>@Job.Title</h3>
+            <p>@Job.Description</p>
+
+            @if (Job.Worker == null)
+                {
+                <p>This job is unclaimed.</p>
+                    <h4>@Html.ActionLink("Claim This Job", "Claim", new { @text = @Job.Title, id = Job.JobId })</h4>
+            }
+            else
+            {
+                <p>This Job is claimed by @Job.Worker.FirstName @Job.Worker.LastName</p>
+
+            }
+        </div>
+    }
+</div>

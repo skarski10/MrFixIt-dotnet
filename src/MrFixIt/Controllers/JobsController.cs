@@ -15,7 +15,7 @@ namespace MrFixIt.Controllers
         //Takes you to the jobs index page
         public IActionResult Index()
         {
-            return View(db.Jobs.Include(i => i.Worker).ToList());
+            return View(db.Jobs.Include(i => i.Worker).OrderByDescending(j => j.JobId).ToList());
         }
 
         //takes you to the jobs create page
@@ -38,13 +38,15 @@ namespace MrFixIt.Controllers
             return View(thisItem);
         }
 
+        //Claim Post
         [HttpPost]
-        public IActionResult Claim(Job job)
+        public IActionResult Claim(int JobId, string Title)
         {
+            Job job = db.Jobs.FirstOrDefault(j => j.JobId == JobId);
             job.Worker = db.Workers.FirstOrDefault(i => i.UserName == User.Identity.Name);
             db.Entry(job).State = EntityState.Modified;
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return Json(job);
         }
         public IActionResult JobsList()
         {

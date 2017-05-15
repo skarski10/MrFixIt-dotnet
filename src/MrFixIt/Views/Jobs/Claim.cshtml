@@ -5,13 +5,18 @@
 
 <h2>Would you like to do this job?</h2>
 <hr />
-@using (Html.BeginForm())
+@if (Model.Worker == null)
 {
-    @Html.HiddenFor(model => model.JobId)
-    @Html.HiddenFor(model => model.Title)
-    @Html.HiddenFor(model => model.Description)
-
-    <h4>@Model.Title</h4>
-    <input type="submit" value="Claim This Job" />
+    <div class="job-form">
+        <h4>@Model.Title</h4>
+        <form id="claim-form">
+            <input type="hidden" name="JobId" value="@Model.JobId" />
+            <input type="hidden" name="Title" value="@Model.Title" />
+            <input type="submit" value="Claim This Job" />
+        </form>
+    </div>
 }
-<p>@Html.ActionLink("Back to list", "Index")</p>
+else
+{
+    <h4>This job has already been claimed.</h4>
+}

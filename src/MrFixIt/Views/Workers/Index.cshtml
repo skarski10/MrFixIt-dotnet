@@ -23,7 +23,14 @@
             <div>
                 <h5>@Job.Title</h5>
                 <p>@Job.Description</p>
-                @if (Job.Pending == false)
+
+                @if (@Job.Completed == true && Job.Pending == true)
+                {
+                    <div>This job is complete!</div>
+                    <div id="complete-job">
+                    </div>
+                }
+                else if (@Job.Pending == false)
                 {
                     <div id="start-job">
                         <form action="StartJob" class="start-job">
@@ -32,11 +39,14 @@
                         </form>
                     </div>
                 }
-                else
+                else if (@Job.Pending == true && Job.Completed == false)
                 {
-                <div id="begin-job">
-                </div>
-                <div id="complete-job">
+                <div id="@Job.JobId">
+                    <h3>You have started @Job.Title!</h3>
+                    <form action="CompleteJob" class="complete-job">
+                        <input type="hidden" name="completeJob" value="@Job.JobId" />
+                        <button type="submit" class="btn btn-sucess btn-sm">Complete Job</button>
+                    </form>
                 </div>
                 }                
                 <hr />

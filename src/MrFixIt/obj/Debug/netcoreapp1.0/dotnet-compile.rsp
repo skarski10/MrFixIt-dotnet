@@ -216,10 +216,8 @@ C:\Users\Skarbek\Desktop\MrFixIt-dotnet\src\MrFixIt\Controllers\AccountControlle
 C:\Users\Skarbek\Desktop\MrFixIt-dotnet\src\MrFixIt\Controllers\HomeController.cs
 C:\Users\Skarbek\Desktop\MrFixIt-dotnet\src\MrFixIt\Controllers\JobsController.cs
 C:\Users\Skarbek\Desktop\MrFixIt-dotnet\src\MrFixIt\Controllers\WorkersController.cs
-C:\Users\Skarbek\Desktop\MrFixIt-dotnet\src\MrFixIt\Migrations\20161206233149_Initial.cs
-C:\Users\Skarbek\Desktop\MrFixIt-dotnet\src\MrFixIt\Migrations\20161206233149_Initial.Designer.cs
-C:\Users\Skarbek\Desktop\MrFixIt-dotnet\src\MrFixIt\Migrations\20170505222535_KorySkarbek.cs
-C:\Users\Skarbek\Desktop\MrFixIt-dotnet\src\MrFixIt\Migrations\20170505222535_KorySkarbek.Designer.cs
+C:\Users\Skarbek\Desktop\MrFixIt-dotnet\src\MrFixIt\Migrations\20170515042032_Start.cs
+C:\Users\Skarbek\Desktop\MrFixIt-dotnet\src\MrFixIt\Migrations\20170515042032_Start.Designer.cs
 C:\Users\Skarbek\Desktop\MrFixIt-dotnet\src\MrFixIt\Migrations\MrFixItContextModelSnapshot.cs
 C:\Users\Skarbek\Desktop\MrFixIt-dotnet\src\MrFixIt\Models\ApplicationUser.cs
 C:\Users\Skarbek\Desktop\MrFixIt-dotnet\src\MrFixIt\Models\Job.cs
